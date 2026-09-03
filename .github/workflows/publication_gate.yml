@@ -1,0 +1,21 @@
+name: Publication gate
+
+on:
+  pull_request:
+    paths:
+      - "docs/release_notes.md"
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Codex SDK
+        run: python -m pip install openai-codex
+      - name: Review public claims
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python codex_sdk_publication_gate.py
