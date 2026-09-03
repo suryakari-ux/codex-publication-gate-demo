@@ -18,4 +18,5 @@ jobs:
       - name: Review public claims
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CODEX_HOME: ${{ runner.temp }}/codex
         run: python codex_sdk_publication_gate.py
