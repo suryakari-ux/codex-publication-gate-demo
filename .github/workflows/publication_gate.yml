@@ -19,4 +19,6 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           CODEX_HOME: ${{ runner.temp }}/codex
-        run: python codex_sdk_publication_gate.py
+        run: |
+          mkdir -p "$CODEX_HOME"
+          python codex_sdk_publication_gate.py
