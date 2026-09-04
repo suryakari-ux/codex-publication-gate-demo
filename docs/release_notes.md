@@ -1,3 +1,3 @@
 # Release notes
 
-No public product updates in this release.
+CSV export is now generally available to workspace administrators from the admin console.
