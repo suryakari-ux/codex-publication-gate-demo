@@ -8,6 +8,7 @@ from openai_codex import Codex, Sandbox
 # The workflow runs this file from the repository root.
 REPO_ROOT = Path(__file__).parent
 DOCS_DIR = REPO_ROOT / "docs"
+CODEX_MODEL = "gpt-5.6-sol"
 
 
 # This is the predictable answer GitHub will act on.
@@ -61,6 +62,7 @@ def review_release_notes() -> dict:
 
         thread = codex.thread_start(
             cwd=str(REPO_ROOT),
+            model=CODEX_MODEL,
             sandbox=Sandbox.read_only,
         )
         result = thread.run(
