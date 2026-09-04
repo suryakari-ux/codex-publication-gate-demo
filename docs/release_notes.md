@@ -1,3 +1,3 @@
 # Release notes
 
-No public product updates in this release.
+CSV export is now available to every user and is SOC 2 certified.
